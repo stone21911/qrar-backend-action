@@ -1,0 +1,19 @@
+name: 'Check Enviornment Variables'
+description: 'Checks the environment variables'
+runs:
+  using: "composite"
+  steps:
+    - name: echoing environment variables
+      run: echo "$AWS_KEY"
+      shell: bash
+      env:
+        AWS_KEY: ${secrets.AWS_KEY}
+        AWS_SECRET: ${secrets.AWS_SECRET}
+        GPT_KEY: ${secrets.GPT_KEY}
+        MYSQL_DBHOST: ${secrets.MYSQL_DBHOST}
+        MYSQL_DBUSER: ${secrets.MYSQL_DBUSER}
+        MYSQL_DBPASS: ${secrets.MYSQL_DBPASS}
+        MYSQL_DBNAME: ${secrets.MYSQL_DBNAME}
+        COGNITO_USERPOOL: ${secrets.COGNITO_USERPOOL}
+        COGNITO_USERPOOLSHORT: ${secrets.COGNITO_USERPOOLSHORT}
+        COGNITO_CLIENTID: ${secrets.COGNITO_CLIENTID}
